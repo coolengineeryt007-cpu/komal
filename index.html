@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday My Love, Komal ❤️</title>
+  
+  <!-- SEO & Optimization -->
+  <meta name="description" content="A premium personalized birthday surprise journey created with love for my beautiful wife, Komal.">
+  <meta name="keywords" content="Happy Birthday, Komal, Birthday Surprise, Love of My Life, Romantic Surprise">
+  <meta name="author" content="Your Love">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- External CDN Libraries (Premium Icons & Canvas Particle Explosions) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Background Ambient CSS Hearts -->
+  <div class="css-hearts-container"></div>
+
+  <!-- 1. LOADING SCREEN -->
+  <section id="loading-screen">
+    <div class="loader-container">
+      <svg class="loader-heart" viewBox="0 0 32 29.6">
+        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+        c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+      </svg>
+      <h2 class="loader-text" id="loading-text">Loading a Special Surprise For Someone Very Special ❤️</h2>
+      <div class="loader-bar-bg">
+        <div class="loader-bar-fill" id="loading-progress"></div>
+      </div>
+      <span class="loader-percent" id="loading-percent">0%</span>
+    </div>
+  </section>
+
+  <!-- 2. WELCOME (HERO) SCREEN -->
+  <section id="welcome-screen">
+    <canvas id="welcome-hearts-canvas"></canvas>
+    
+    <div class="welcome-glass-card">
+      <!-- 3D Exploding Gift Box -->
+      <div class="gift-wrapper" id="gift-wrapper">
+        <div class="gift-box" id="gift-box">
+          <div class="gift-box-lid"></div>
+          <div class="gift-box-body"></div>
+          <div class="gift-box-ribbon-v"></div>
+          <div class="gift-box-ribbon-h"></div>
+          <div class="gift-box-bow">
+            <div class="bow-loop left"></div>
+            <div class="bow-loop right"></div>
+            <div class="bow-knot"></div>
+          </div>
+        </div>
+        <span class="gift-prompt" id="gift-prompt">Tap To Unbox Your Surprise Gift ✨</span>
+      </div>
+
+      <!-- Welcome content revealed after unboxing -->
+      <div class="welcome-content-reveal" id="welcome-content-reveal">
+        <h1 class="welcome-cursive">Happy Birthday My Love ❤️</h1>
+        <h2 class="welcome-title">Today is all about celebrating the most beautiful person in my life.</h2>
+        <p class="welcome-subtitle">I have created a digital sanctuary of our most cherished memories. Step inside to witness my heart laid bare for you.</p>
+        <button class="premium-btn" id="open-surprise-btn">Enter Your Surprise Journey</button>
+      </div>
+    </div>
+  </section>
+  <!-- MAIN SCROLLABLE APP PORTION -->
+  <main id="main-content">
+
+    <!-- 3. PHOTO MEMORY GALLERY -->
+    <section class="section-wrapper scroll-reveal" id="gallery-section">
+      <div class="section-header">
+        <span class="section-cursive">Memories of You</span>
+        <h2 class="section-title">A Gallery of Beautiful Graces</h2>
+      </div>
+
+      <div class="gallery-tab-wrapper">
+        <button class="gallery-tab-btn active" data-view="masonry">Masonry Gallery</button>
+        <button class="gallery-tab-btn" data-view="slider">Filmstrip Slider</button>
+        <button class="gallery-tab-btn" data-view="polaroid">Polaroid Deck</button>
+      </div>
+
+      <!-- A. Masonry View -->
+      <div class="gallery-view active" id="masonry-view">
+        <div class="masonry-grid" id="masonry-gallery">
+          <!-- Dynamically populated in script.js (All 40 photos) -->
+        </div>
+      </div>
+
+      <!-- B. Slider View -->
+      <div class="gallery-view" id="slider-view">
+        <div class="slider-view-container" id="slider-scroll-container">
+          <div class="slider-track" id="slider-track">
+            <!-- Dynamically populated in script.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- C. Polaroid Deck Scatter View -->
+      <div class="gallery-view" id="polaroid-view">
+        <div class="polaroid-deck-view">
+          <span class="polaroid-deck-intro"><i class="fa-solid fa-hand-pointer"></i> Tap on any polaroid photo to rearrange the stack</span>
+          <div class="polaroid-deck-wrapper" id="polaroid-stack-container">
+            <!-- Dynamically populated in script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OUR BEAUTIFUL JOURNEY TIMELINE -->
+    <section class="section-wrapper scroll-reveal" id="journey-section">
+      <div class="section-header">
+        <span class="section-cursive">Step by Step</span>
+        <h2 class="section-title">Our Beautiful Journey</h2>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-wrapper" id="timeline-wrapper">
+          <!-- Timeline elements dynamically generated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BIRTHDAY MESSAGE SECTION (LOVE LETTER) -->
+    <section class="section-wrapper scroll-reveal" id="letter-section">
+      <div class="section-header">
+        <span class="section-cursive">From the Heart</span>
+        <h2 class="section-title">A Letter To My Love</h2>
+      </div>
+
+      <div class="letter-outer-container">
+        <!-- 3D Interactive Envelope -->
+        <div class="envelope-wrapper" id="envelope-wrapper">
+          <div class="envelope-back"></div>
+          
+          <div class="envelope-letter" id="letter-body">
+            <div class="letter-text">
+              <h4>My Dearest Komal,</h4>
+              <p>Every moment with you has made my life brighter, happier, and more meaningful.</p>
+              <p>Your smile is my favorite sight.<br>Your happiness is my greatest wish.</p>
+              <p>On your birthday, I want to thank you for being my best friend, my biggest support, and the love of my life.</p>
+              <p>May your day be filled with joy, laughter, and everything you dream of.</p>
+              <p style="margin-top: 30px;">Happy Birthday My Love ❤️</p>
+              <p style="font-family: var(--font-cursive); font-size: 2.5rem; margin-top: 10px;">Forever Yours</p>
+            </div>
+          </div>
+          
+          <div class="envelope-left"></div>
+          <div class="envelope-right"></div>
+          <div class="envelope-bottom"></div>
+          <div class="envelope-top"></div>
+          
+          <div class="envelope-seal" id="envelope-seal" title="Break the seal to open"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SURPRISE SECTION -->
+    <section class="section-wrapper scroll-reveal" id="surprise-section">
+      <div class="surprise-content-card">
+        <span class="section-cursive">An Extra Sparkle</span>
+        <h2 class="section-title" style="margin-bottom: 20px;">Are You Ready?</h2>
+        <p class="surprise-subtext">Click the button below to witness a visual symphonic celebration of my endless devotion to you.</p>
+        <button class="premium-btn" id="surprise-trigger-btn">Click For A Special Surprise</button>
+      </div>
+    </section>
+
+    <!-- SURPRISE OVERLAY MODAL -->
+    <div class="surprise-modal-overlay" id="surprise-modal">
+      <canvas id="fireworks-canvas"></canvas>
+      
+      <div class="surprise-modal-box">
+        <div class="surprise-icon">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h3 class="surprise-text">I Love You More Than Words Can Ever Express ❤️</h3>
+        <button class="close-btn" id="close-surprise-modal">Close Surprise</button>
+      </div>
+    </div>
+
+    <!-- 9. FINAL SECTION -->
+    <section id="final-section" class="scroll-reveal">
+      <div class="final-container">
+        <div class="rotating-heart-canvas-container" id="rotating-heart-canvas-container">
+          <svg class="beating-3d-heart" viewBox="0 0 32 29.6">
+            <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+            c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+          </svg>
+        </div>
+        
+        <h2 class="final-title">Happy Birthday Komal ❤️</h2>
+        <p class="final-subtitle">Thank you for making my life beautiful.</p>
+        <p class="final-tagline">Forever Together</p>
+        
+        <div class="final-action-group">
+          <button class="premium-btn" onclick="document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' });">Relive Our Memories</button>
+          <button class="outline-btn" onclick="shareToWhatsApp();"><i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Share Love</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JavaScript logic binding -->
+  <script src="script.js"></script>
+</body>
+</html>
