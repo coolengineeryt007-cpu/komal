@@ -153,17 +153,24 @@ window.addEventListener("DOMContentLoaded", () => {
   setupFinalHeart();
 });
 
-// 2. Resource Preloader
+// State variables
+let hasPreloaderCompleted = false;
+
+// 2. Resource Preloader with Fail-Safe Timeout
 function initPreloader() {
   const loadingProgress = document.getElementById("loading-progress");
-  const loadingText = document.getElementById("loading-text");
   const loadingPercent = document.getElementById("loading-percent");
-  const loaderHeart = document.querySelector(".loader-heart");
   
   if (ALL_PHOTOS.length === 0) {
     completePreloader();
     return;
   }
+
+  // Safety fallback: if images don't load in 4.5 seconds on mobile data, automatically skip preloader
+  const safetyTimeout = setTimeout(() => {
+    console.log("Preloader safety timeout fired. Continuing surprise.");
+    completePreloader();
+  }, 4500);
 
   ALL_PHOTOS.forEach(src => {
     const img = new Image();
@@ -171,37 +178,41 @@ function initPreloader() {
     img.onload = () => {
       loadedImagesCount++;
       const progress = Math.min(100, Math.round((loadedImagesCount / ALL_PHOTOS.length) * 100));
-      loadingProgress.style.width = `${progress}%`;
-      loadingPercent.textContent = `${progress}%`;
+      if (loadingProgress) loadingProgress.style.width = `${progress}%`;
+      if (loadingPercent) loadingPercent.textContent = `${progress}%`;
       
       if (loadedImagesCount >= ALL_PHOTOS.length) {
-        setTimeout(completePreloader, 600);
+        clearTimeout(safetyTimeout);
+        setTimeout(completePreloader, 400);
       }
     };
     img.onerror = () => {
-      // Continue even if an image fails to load
+      // Continue loading flow even on broken paths
       loadedImagesCount++;
       const progress = Math.min(100, Math.round((loadedImagesCount / ALL_PHOTOS.length) * 100));
-      loadingProgress.style.width = `${progress}%`;
-      loadingPercent.textContent = `${progress}%`;
+      if (loadingProgress) loadingProgress.style.width = `${progress}%`;
+      if (loadingPercent) loadingPercent.textContent = `${progress}%`;
       
       if (loadedImagesCount >= ALL_PHOTOS.length) {
-        setTimeout(completePreloader, 600);
+        clearTimeout(safetyTimeout);
+        setTimeout(completePreloader, 400);
       }
     };
   });
 }
 
 function completePreloader() {
+  if (hasPreloaderCompleted) return;
+  hasPreloaderCompleted = true;
+
   const preloader = document.getElementById("loading-screen");
   const welcomeScreen = document.getElementById("welcome-screen");
   
-  preloader.classList.add("fade-out");
-  welcomeScreen.classList.add("active");
+  if (preloader) preloader.classList.add("fade-out");
+  if (welcomeScreen) welcomeScreen.classList.add("active");
   
   setTimeout(() => {
-    preloader.style.display = "none";
-    // Initialize interactive canvases after transition
+    if (preloader) preloader.style.display = "none";
     initWelcomeHeartsCanvas();
   }, 1000);
 }
@@ -744,7 +755,7 @@ function initIntersectionObserver() {
   const observerOptions = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.1
+    threshold: 0.03
   };
   
   const observer = new IntersectionObserver((entries, obs) => {
